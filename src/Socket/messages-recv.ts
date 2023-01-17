@@ -383,6 +383,7 @@ export const makeMessagesRecvSocket = (config: SocketConfig) => {
 		// just re-send the message to everyone
 		// prevents the first message decryption failure
 		const sendToAll = !jidDecode(participant)?.device
+		if (!participant) return
 		await assertSessions([participant], true)
 
 		if(isJidGroup(remoteJid)) {
