@@ -159,6 +159,8 @@ export const makeMessagesSocket = (config: SocketConfig) => {
 				users.push({ tag: 'user', attrs: { jid } })
 			}
 		}
+		
+		if (users.length === 0) return deviceResults;
 
 		const iq: BinaryNode = {
 			tag: 'iq',
